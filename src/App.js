@@ -1,10 +1,8 @@
-import './App.css';
+import { Body } from "./components/Body";
 
 function App() {
   return (
-    <div>
-      <h1>hola como estas?</h1>
-    </div>
+    <Body />
   );
 }
 
