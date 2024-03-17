@@ -1,23 +1,25 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import Validate from "../utils/Validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
 
-
 export const Login = (e) => {
-  const Navigate=useNavigate()
-  let email=useRef(null);
-  let password=useRef(null);
-  const name=useRef(null);
-  const [errormsg,seterrormsg]=useState(null);
-const dispatch=useDispatch()
+  let email = useRef(null);
+  let password = useRef(null);
+  const name = useRef(null);
+  const [errormsg, seterrormsg] = useState(null);
+  const dispatch = useDispatch();
   const [isSignIn, setisSignIn] = useState(true);
 
-  
+
+
   const handleToggle = () => {
     setisSignIn(!isSignIn);
   };
@@ -25,56 +27,61 @@ const dispatch=useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const resp=Validate(email.current.value,password.current.value)
-    seterrormsg(resp)
-    if(resp) return;
+    const resp = Validate(email.current.value, password.current.value);
+    seterrormsg(resp);
+    if (resp) return;
 
-    if(!isSignIn){
+    if (!isSignIn) {
       //signUp
-      createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    updateProfile(user, {
-      displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
-    }).then(() => {
-      // Profile updated!
-      // ...
-      const {uid,email,displayName,photoURL} = auth.currentUser;
-        dispatch(addUser({uid,email,displayName,photoURL}))
-      Navigate('/browse')
-    }).catch((error) => {
-      seterrormsg(error.message)
-    });
-    
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    seterrormsg(errorCode,'-',errorMessage)
-    // ..
-  });
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(addUser({ uid, email, displayName, photoURL }));
+            })
+            .catch((error) => {
+              seterrormsg(error.message);
+            });
 
-    }
-    else{
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrormsg(errorCode, "-", errorMessage);
+          // ..
+        });
+    } else {
       //signIn
-      signInWithEmailAndPassword(auth, email.current.value,password.current.value)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    Navigate('/browse')
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    seterrormsg(errorCode,'-',errorMessage)
-
-  }); 
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrormsg(errorCode, "-", errorMessage);
+        });
     }
-
   };
   return (
     <div>
@@ -93,13 +100,15 @@ const dispatch=useDispatch()
         <h1 className="font-bold text-3xl py-4">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
-        {!isSignIn && <input
-          className="px-2 py-4 my-4 rounded-sm w-full bg-gray-700 border border-red-600"
-          type="text"
-          ref={name}
-          placeholder="Name"
-          required
-        />}
+        {!isSignIn && (
+          <input
+            className="px-2 py-4 my-4 rounded-sm w-full bg-gray-700 border border-red-600"
+            type="text"
+            ref={name}
+            placeholder="Name"
+            required
+          />
+        )}
         <input
           className="px-2 py-4 my-4 rounded-sm w-full bg-gray-700 border border-red-600"
           type="text"
@@ -108,7 +117,7 @@ const dispatch=useDispatch()
           required
         />
         <input
-          className="p-2 py-4 my-4 rounded-sm w-full bg-gray-700 border border-red-600"
+          className="p-2 py-4 mb-4 mt-2 rounded-sm w-full bg-gray-700 border border-red-600"
           type="password"
           name=""
           id=""
