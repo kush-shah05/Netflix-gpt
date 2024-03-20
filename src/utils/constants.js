@@ -7,3 +7,5 @@ export const options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWQ0YmE0NTdjYmU4NmQ2NDkxNzA1MTM0ZWRkNzM3MSIsInN1YiI6IjY1ZjY2OTg0NTk0Yzk0MDE3YzM3NGNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JpX_wcAVEc7nDJkaoPgS3QFOBdxdkeMMBL4i1dVE6c4'
     }
   };
+
+  export const IMG_CDN='https://image.tmdb.org/t/p/w780';
