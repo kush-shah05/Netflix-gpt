@@ -9,6 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
+import { BCKGRND } from "../utils/constants";
 
 export const Login = (e) => {
   let email = useRef(null);
@@ -88,7 +89,7 @@ export const Login = (e) => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/e490f90f-91ae-46e7-8a48-ae25c82941c5/CA-en-20240311-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+          src={BCKGRND}
           alt=""
         />
       </div>
