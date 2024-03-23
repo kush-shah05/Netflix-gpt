@@ -133,7 +133,7 @@ export const Login = (e) => {
 
         <p onClick={handleToggle} className="p-2 cursor-pointer">
           {isSignIn
-            ? "New to Netflix? Sign up now."
+            ? "New to NetflixGPT? Sign up now."
             : "Already have an account? Sign In"}{" "}
         </p>
       </form>

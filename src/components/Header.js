@@ -18,16 +18,12 @@ const Header = () => {
     dispatch(changeLan(e.target.value));
   };
   const handleGptClick = () => {
-      dispatch(gptToggle());
-
-    
+    dispatch(gptToggle());
   };
 
   const handleLogoClick = () => {
-   
-    if(showToggle===true){
+    if (showToggle === true) {
       dispatch(gptToggle());
-
     }
   };
   const handleSignOut = () => {
@@ -83,7 +79,7 @@ const Header = () => {
             onClick={handleGptClick}
             className="bg-purple-800 font-bold text-white my-auto p-2.5 mx-4 rounded-md"
           >
-           {showToggle?'Home Page':'GPT Search'} 
+            {showToggle ? "Home Page" : "GPT Search"}
           </button>
           <p className="my-10 p-2 text-white font-bold">
             Hey, {user?.displayName}
