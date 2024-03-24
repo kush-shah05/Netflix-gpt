@@ -9,7 +9,8 @@ export const useUpcomingMovies=()=>{
     const nowplayingupcoming=useSelector(store=>store.movies.UpcomingMovies)
 
     useEffect(()=>{
-    !nowplayingupcoming &&  getUpcomingMovies();
+    // !nowplayingupcoming &&  getUpcomingMovies();
+    getUpcomingMovies()
     },[])
     const getUpcomingMovies=async()=>{
   const moviedata=await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1',options)
