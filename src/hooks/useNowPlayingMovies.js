@@ -8,8 +8,8 @@ export const useNowPlayingMovies=()=>{
     const dispatch=useDispatch();
     const nowplayingmovies=useSelector(store=>store.movies.nowPlayingMovies)
     useEffect(()=>{
-    //  !nowplayingmovies && getNowPlayingMovies();
-    getNowPlayingMovies()
+     !nowplayingmovies && getNowPlayingMovies();
+    //getNowPlayingMovies()
     },[])
     const getNowPlayingMovies=async()=>{
   const moviedata=await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1',options)

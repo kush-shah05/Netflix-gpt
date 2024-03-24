@@ -9,8 +9,7 @@ export const usePopularMovies=()=>{
     const nowplayingpopular=useSelector(store=>store.movies.PopularMovies)
 
     useEffect(()=>{
-    //  !nowplayingpopular && getPopularMovies();
-     getPopularMovies()
+     !nowplayingpopular && getPopularMovies();
     },[])
     const getPopularMovies=async()=>{
   const moviedata=await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options)

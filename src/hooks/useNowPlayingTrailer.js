@@ -7,8 +7,7 @@ const useNowPlayingTrailer = (movieId) => {
     const dispatch=useDispatch();
     const nowplayingtrailer=useSelector(store=>store.movies.nowPlayingTrailer)
     useEffect(()=>{
-        // !nowplayingtrailer && getVideo();
-        getVideo()
+        !nowplayingtrailer && getVideo();
       },[])
       const getVideo=async()=>{
         const data=await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,options);
