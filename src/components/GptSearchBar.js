@@ -41,8 +41,8 @@ return json.results;
   }; 
 
   return (
-    <div className="pt-[10%] flex justify-center">
-      <form className="w-1/2 bg-black grid grid-cols-12">
+    <div className="pt-[55%] md:pt-[10%] flex justify-center">
+      <form className="w-full md:w-1/2 bg-black grid grid-cols-12">
         <input
           ref={searchText}
           type="text"
@@ -51,7 +51,7 @@ return json.results;
         />
         <button
           onClick={handleGPTclick}
-          className="rounded-lg bg-red-700 text-white py-2 px-4 m-4 col-span-3 font-bold text-l"
+          className="rounded-lg bg-red-700 text-white py-2 px-2 m-4 col-span-3 font-bold text-l"
         >
           {lang[lan]?.search}
         </button>

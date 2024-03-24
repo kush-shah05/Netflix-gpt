@@ -91,12 +91,13 @@ export const Login = (e) => {
         <img
           src={BCKGRND}
           alt=""
+          className="h-screen object-cover md:h-full"
         />
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="w-3/12 my-36 mx-auto right-0 left-0 absolute p-12 bg-black bg-opacity-80 text-white"
+        className=" md:w-3/12 my-36 mx-auto right-0 left-0 absolute p-12 bg-black bg-opacity-80 text-white"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignIn ? "Sign In" : "Sign Up"}
