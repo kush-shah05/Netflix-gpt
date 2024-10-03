@@ -65,7 +65,7 @@ REACT_APP_OPENAI_API_KEY=your_openai_api_key
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/netflix-gpt.git
+   git clone https://github.com/kush-shah05/netflix-gpt.git
    cd netflix-gpt
    ```
 
