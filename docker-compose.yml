@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  netflix:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_OPENAI_KEY: "USE YOUR OPENAI API KEY"
+      REACT_APP_TMDB_KEY: "USE YOUR TMDB API KEY"
