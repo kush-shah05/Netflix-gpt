@@ -3,7 +3,7 @@
 
 ## Overview
 
-Netflix GPT is a web application that integrates OpenAI's GPT API with TMDB (The Movie Database) API to provide personalized movie recommendations. Users can log in, browse through movies, watch trailers, and get AI-powered movie suggestions via a GPT-powered search bar. The app also supports multi-language features.
+Netflix GPT is a web application that integrates OpenAI's GPT API with TMDB (The Movie Database) API to provide personalized movie recommendations. Users can log in, browse through movies, watch trailers, and get AI-powered movie suggestions via a GPT-powered search bar. The app also supports multilanguage features.
 
 ## Features
 
