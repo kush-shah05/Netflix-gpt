@@ -10,22 +10,23 @@ import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
 
 export const Browse = () => {
-  const gpt=useSelector(store=>store.gpt);
+  const gpt = useSelector((store) => store.gpt);
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
-  
+
   return (
     <div>
       <Header />
-      {gpt.gpttoggle?<GptSearch/>:<>
-      <MainContainer />
-      <SecondaryComponent />
-      </>}
-      
-      
-      
+      {gpt.gpttoggle ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryComponent />
+        </>
+      )}
     </div>
   );
 };

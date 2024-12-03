@@ -124,8 +124,9 @@ export const Login = (e) => {
           name=""
           id=""
           placeholder="Password"
-          ref={password}
+         ref={password}
           required
+          
         />
         <p className="text-red-500 text-lg py-2">{errormsg}</p>
         <button className="p-4 my-3 bg-red-600 rounded-lg w-full">
